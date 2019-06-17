@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Procesos SO</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <header class="my-4">
+
+        <h2 class="text-center font-weight-bold text-secondary">Simulador planificación de procesos SO</h2>
+
+    </header>
+
+    <main class="container mb-4">
+
+        <table class="table" id="procesosTable">
+            <thead>
+                <tr>
+                    <th scope="col">Proceso</th>
+                    <th scope="col">T. Llegada</th>
+                    <th scope="col">T. Cpu</th>
+                    <th scope="col">Prioridad</th>
+                    <th scope="col">T. Inicio</th>
+                    <th scope="col">T. Fin</th>
+                    <th scope="col">T. Espera</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <div class="alert alert-primary mt-4 pb-4" role="alert" id="tiempoPromedio">
+            Tiempo de espera promedio:
+
+            <button class="btn btn-info float-right" onclick="restaurarProcesos()">Restaurar datos</button>
+        </div>
+
+        <nav class="row justify-content-around py-4">
+            <a href="#" class="btn btn-info col-3" onclick="algoritmoSJF()">SJF</a>
+            <a href="#" class="btn btn-success col-3" onclick="algoritmoSRTF()">SRTF</a>
+            <a href="#" class="btn btn-primary col-3" onclick="prioridadExpropiativa()">PRIORIDAD EXPROPIATIVA</a>
+        </nav>
+
+        <hr class="w-75">
+
+        <!--Agregar expresiones regulares-->
+        <form class="container" onsubmit="agregarProceso()" id="formAgregar" autocomplete="off">
+
+            <h4 class="text-center font-weight-bold text-secondary mb-3">Agrega procesos</h4>
+
+            <div class="form-row justify-content-center">
+
+                <div class="col-5 form-group">
+                    <input type="text" class="form-control" placeholder="Nombre del proceso" required id="nombre">
+                </div>
+                <div class="col-5 form-group">
+                    <input type="number" class="form-control" placeholder="Prioridad" required id="prioridad">
+                </div>
+                <div class="col-5 form-group">
+                    <input type="text" class="form-control" placeholder="Tiempo de llegada" required id="tLlegada">
+                </div>
+                <div class="col-5 form-group">
+                    <input type="text" class="form-control" placeholder="Tiempo de CPU" required id="tCpu">
+                </div>
+
+                <div class="col-5 form-group text-center">
+                    <button type="submit" class="btn btn-success btn-block">Agregar</button>
+                </div>
+                <div class="col-5 form-group text-center">
+                    <button type="reset" class="btn btn-secondary btn-block" id="btnLimpiar">Limpiar</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </main>
+
+
+    <script src="js/jquery.3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
